@@ -1,0 +1,16 @@
+﻿@model List<GetProductViewModel>
+@{
+
+}
+<div class="col-sm-6 mb-3 mb-sm-0">
+	<div class="card">
+		@foreach(var item in Model)
+		{
+			<div class="card-body">
+				<h4 class="card-title">@item.Name</h4>
+				<p class="card-text">@item.Description</p>
+				<p class="card-text">@item.Price</p>
+			</div>
+		}
+	</div>
+</div>

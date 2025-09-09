@@ -1,0 +1,13 @@
+﻿@{
+}
+<div>
+	<form asp-controller="Shop" asp-action="AddProduct">
+		<label>Name</label>
+		<input type="text" name="Name" />
+		<label>Description</label>
+		<input type="text" name="Description" />
+		<label>Price</label>
+		<input type="number" name="Price" />
+		<button type="submit" asp-action="AddProduct">Add Product</button>
+	</form>
+</div>
