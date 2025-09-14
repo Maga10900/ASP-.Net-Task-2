@@ -27,22 +27,28 @@ public class ShopController : Controller
 			Id = p.Id,
 			Name = p.Name,
 			Description = p.Description,
-			Price = p.Price
-		}).ToList();
+			Price = p.Price,
+            CategotyName = _dbContext.Categories.FirstOrDefault(c => c.Id == p.CategoryId)?.Name
+        }).ToList();
 
 		return View(prViewModel);
 	}
 	[HttpGet]
 	public IActionResult AddProduct()
 	{
-		var ct = _dbContext.Categories.Select()
-		return View(ct);
+        ViewData["Categories"] = _dbContext.Categories.Select(c => new GetCategoryViewModel
+        {
+            Id = c.Id,
+            Name = c.Name
+        }).ToList();
+        return View();
 	}
 
 	[HttpPost]
 	public IActionResult AddProduct(AddProductViewModel product)
 	{
-		var pr = new Product
+
+        var pr = new Product
 		{
 			Name = product.Name,
 			Description = product.Description,
@@ -65,7 +71,12 @@ public class ShopController : Controller
 	[HttpGet]
 	public IActionResult UpdateProduct(int id)
 	{
-		var pr = _dbContext.Products.FirstOrDefault(p => p.Id == id);
+		ViewData["Categories"] = _dbContext.Categories.Select(c => new GetCategoryViewModel
+        {
+            Id = c.Id,
+            Name = c.Name
+        }).ToList();
+        var pr = _dbContext.Products.FirstOrDefault(p => p.Id == id);
 		var pr_ = new UpdateProductViewModel
 		{
 			Name = pr.Name,
@@ -83,12 +94,16 @@ public class ShopController : Controller
 			pr.Name = model.Name;
 			pr.Description = model.Description;
 			pr.Price = model.Price;
-			_dbContext.Update(pr);
+            pr.CategoryId = model.CategoryId;
+            _dbContext.Update(pr);
 		}
 		_dbContext.SaveChanges();
 		return RedirectToAction("GetAllProducts");
 	}
 	#endregion
+
+	#region Category
+
 	[HttpGet]
 	public IActionResult GetAllCategories()
 	{
@@ -153,4 +168,6 @@ public class ShopController : Controller
 		_dbContext.SaveChanges();
 		return RedirectToAction("GetAllCategories");
 	}
+    #endregion
+
 }

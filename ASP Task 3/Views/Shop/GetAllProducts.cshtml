@@ -5,12 +5,10 @@
 		@foreach(var item in Model)
 		{
 			<div class="card-body">
-				<h4 class="card-title">@item.Name</h4>
-				<p class="card-text">@item.Description</p>
-				<p class="card-text">@item.Price</p>
-				<select>
-					<option value="value">text</option>
-				</select>
+				<h4 class="card-title">Name:@item.Name</h4>
+				<p class="card-text">Desc:@item.Description</p>
+				<p class="card-text">Price:@item.Price</p>
+				<p class="card-text">Category:@item.CategotyName</p>
 				<a href="Shop/DeleteProduct/@item.Id" class="btn btn-danger">Delete</a>
 				<a href="Shop/UpdateProduct/@item.Id" class="btn bg-warning text-white">Update</a>
 			</div>

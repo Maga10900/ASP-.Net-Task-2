@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASP_Task_3.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    [Migration("20250909164143_mig1")]
+    [Migration("20250914130703_mig1")]
     partial class mig1
     {
         /// <inheritdoc />
