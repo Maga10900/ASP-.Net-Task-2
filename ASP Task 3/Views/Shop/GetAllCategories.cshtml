@@ -1,0 +1,18 @@
+﻿@model List<GetCategoryViewModel>
+@{
+}
+<div class="col-sm-6 mb-3 mb-sm-0">
+	<div class="card mb-3">
+		@foreach (var item in Model)
+		{
+			<div class="card">
+				<div class="card-body ">
+					<h4 class="card-title">@item.Name</h4>
+					<a href="/Shop/DeleteCategory/@item.Id" class="btn btn-danger">Delete</a>
+					<a href="/Shop/UpdateCategory/@item.Id" class="btn bg-warning text-white">Update</a>
+
+				</div>
+			</div>
+		}
+	</div>
+</div>

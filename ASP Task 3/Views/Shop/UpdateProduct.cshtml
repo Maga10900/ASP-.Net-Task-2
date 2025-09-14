@@ -1,0 +1,14 @@
+﻿@model UpdateProductViewModel
+@{
+}
+<div>
+	<form asp-controller="Shop" asp-action="UpdateProduct">
+		<label>Name</label>
+		<input type="text" name="Name" value="@Model.Name"/>
+		<label>Description</label>
+		<input type="text" name="Description" value="@Model.Description"/>
+		<label>Price</label>
+		<input type="number" name="Price" value="@Model.Price"/>
+		<button type="submit" asp-action="UpdateProduct">Add Product</button>
+	</form>
+</div>

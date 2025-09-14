@@ -1,0 +1,11 @@
+﻿@model UpdateCategoryViewModel
+@{
+}
+
+<div>
+	<form asp-controller="Shop" asp-action="UpdateCategory">
+		<label>Name</label>
+		<input type="text" name="Name" value="@Model.Name"/>
+		<button type="submit" asp-action="UpdateCategory">Add Category</button>
+	</form>
+</div>

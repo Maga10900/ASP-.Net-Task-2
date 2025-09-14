@@ -1,4 +1,5 @@
-﻿@{
+﻿@model GetCategoryViewModel
+@{
 }
 <div>
 	<form asp-controller="Shop" asp-action="AddProduct">
@@ -8,6 +9,9 @@
 		<input type="text" name="Description" />
 		<label>Price</label>
 		<input type="number" name="Price" />
+		<select asp-for="Category" asp-items="" class="form-control">
+			<option value=""></option>
+		</select>
 		<button type="submit" asp-action="AddProduct">Add Product</button>
 	</form>
 </div>
